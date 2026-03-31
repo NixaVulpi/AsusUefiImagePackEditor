@@ -144,7 +144,7 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="320" />
-                <ColumnDefinition Width="3" />
+                <ColumnDefinition Width="1" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -194,7 +194,7 @@
             </ListView>
 
             <GridSplitter Grid.Column="1"
-                          Width="5"
+                          Width="1"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch" />
 
@@ -226,17 +226,19 @@
                 <StatusBarItem Visibility="{Binding CurrentFilePath, Converter={StaticResource NullToCollapsedConverter}}">
                     <TextBlock>
                         <Run Text="{Binding CurrentFilePath, Mode=OneWay}" />
-                        <Run Text="{Binding Resources.Count, Mode=OneWay, StringFormat=({0})}" />
+                        <Run Text="|" />
+                        <Run Text="Count:" />
+                        <Run Text="{Binding Resources.Count, Mode=OneWay}" />
                     </TextBlock>
                 </StatusBarItem>
                 <StatusBarItem HorizontalAlignment="Right" Visibility="{Binding SelectedResource, Converter={StaticResource NullToCollapsedConverter}}">
                     <TextBlock FontSize="12" DataContext="{Binding SelectedResource}">
                         <Run Text="Format:" />
                         <Run Text="{Binding PreviewImage.Format, Mode=OneWay}" />
-                        |
+                        <Run Text="|" />
                         <Run Text="Dimensions:" />
                         <Run Text="{Binding PreviewImage.PixelWidth, Mode=OneWay, StringFormat={}{0}px}" />
-                        ×
+                        <Run Text="×" />
                         <Run Text="{Binding PreviewImage.PixelHeight, Mode=OneWay, StringFormat={}{0}px}" />
                     </TextBlock>
                 </StatusBarItem>

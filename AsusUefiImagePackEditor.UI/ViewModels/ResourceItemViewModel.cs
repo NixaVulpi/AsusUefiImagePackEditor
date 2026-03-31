@@ -25,8 +25,8 @@ public partial class ResourceItemViewModel: ObservableObject
     [ObservableProperty]
     public bool _isModified;
 
-    public ushort Id => Block.Id;
-    public string DisplayName => $"Resource #{Index + 1} (ID: {Id})";
+    public string Id => Block.Id;
+    public string DisplayName => $"Resource #{Index + 1} [{Id}]";
     public string SizeText => $"{Block.Data.Length} bytes";
     public bool CanSavePreview => PreviewImage is not null;
     public int Index { get; private set; }
